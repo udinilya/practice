@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block plans %}
+{% for plan in plans %}
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{{ plan.name }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">
+              ${{ plan.price }} <small class="text-muted">/ в месяц</small>
+            </h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{ plan.options.users }} пользователей</li>
+              <li>{{ plan.options.space }} GB места</li>
+              <li>Поддержка: {{ plan.options.support }}</li>
+            </ul>
+            <a
+              href="mailto:order@company.site?subject=Услуга Бесплатно"
+              class="btn btn-lg btn-block btn-outline-primary"
+            >
+              Связаться
+          </a>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+{% endblock %}
