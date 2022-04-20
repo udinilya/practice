@@ -1,13 +1,25 @@
 {% extends 'index.html' %}
 
 {% block plans %}
+<style>
+.column {
+  float: right;
+  width: 33.33%;
+  padding: 10px;
+}
+</style>
+
+<div class="row">
+
 {% for plan in plans %}
-    <div class="container">
+      <div class="column">
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">{{ plan.name }}</h4>
-          </div>
+           <div class="card-header">
+            <h4 class="my-0 font-weight-normal">
+              {{ plan.name }}
+            </h4>
+           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">
               ${{ plan.price }} <small class="text-muted">/ в месяц</small>
@@ -26,5 +38,8 @@
           </div>
         </div>
       </div>
+    </div>
 {% endfor %}
+
+</div>
 {% endblock %}
